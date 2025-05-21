@@ -26,6 +26,42 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
+    /* Overlay al entrar */
+    #music-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      flex-direction: column;
+      font-family: sans-serif;
+    }
+
+    #music-overlay button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #f39c1f;
+      color: #000;
+    }
+
+     #close-overlay {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
     #toggle-music {
       position: fixed;
       bottom: 20px;
@@ -36,12 +72,31 @@
       padding: 10px 15px;
       border-radius: 50px;
       cursor: pointer;
-      z-index: 999;
+      z-index: 1000;
     }
   </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
+    
+    <!-- Overlay al iniciar -->
+  <div id="music-overlay">
+    <button id="close-overlay">❌</button>
+    <div>🎵 ¿Querés escuchar música durante tu experiencia?</div>
+    <button id="activar-musica">Activar Música</button>
+  </div>
+
+  <!-- Audio -->
+  <audio id="background-music" loop>
+    <source src="audio/Cantina Band.mp3" type="audio/mp3">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <!-- Botón para silenciar -->
+  <button id="toggle-music" style="display: none;">🔊 Música</button>
+
+
+
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand d-block d-lg-none">
@@ -111,15 +166,7 @@
     </div>
     <!-- Carousel End -->
 
-    <!-- Audio oculto -->
-  <audio id="background-music" autoplay loop>
-    <source src="audio/Cantina Band.mp3" type="audio/mp3">
-    Tu navegador no soporta audio HTML5.
-  </audio>
-
-  <!-- Botón para pausar/reproducir -->
-  <button id="toggle-music">🔊 Música</button>
-
+    
 
     <!-- Fecha Start -->
 
@@ -401,21 +448,46 @@
     <!-- Musica Javascript -->
     <script>
     const audio = document.getElementById('background-music');
-    const button = document.getElementById('toggle-music');
+    const toggleBtn = document.getElementById('toggle-music');
+    const activarBtn = document.getElementById('activar-musica');
+    const closeBtn = document.getElementById('close-overlay');
+    const overlay = document.getElementById('music-overlay');
 
-    let isPlaying = true;
+    let isPlaying = false;
 
-    button.addEventListener('click', () => {
+    activarBtn.addEventListener('click', () => {
+      audio.play().then(() => {
+        isPlaying = true;
+        toggleBtn.textContent = '🔊 Música';
+        overlay.style.display = 'none';
+        toggleBtn.style.display = 'block';
+      }).catch(err => {
+        console.log("Error al iniciar música:", err);
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      // Cierra el overlay pero NO inicia música
+      overlay.style.display = 'none';
+      toggleBtn.textContent = '🔇 Silenciado';
+      toggleBtn.style.display = 'block'; // Mostrar igual el botón
+    });
+
+    toggleBtn.addEventListener('click', () => {
       if (isPlaying) {
         audio.pause();
-        button.textContent = '🔇 Silenciado';
+        toggleBtn.textContent = '🔇 Silenciado';
       } else {
-        audio.play();
-        button.textContent = '🔊 Música';
+        audio.play().then(() => {
+          toggleBtn.textContent = '🔊 Música';
+        }).catch(err => {
+          console.log("Error al reproducir música:", err);
+        });
       }
       isPlaying = !isPlaying;
     });
   </script>
+
 </body>
 
 </html>
