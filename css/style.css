@@ -44,7 +44,7 @@
 
 @font-face {
   font-family: 'MandaloreFont';
-  src: url('/fonts/mandalore.ttf') format('truetype');
+  src: url('https://horaciocaniz.github.io/javiylulu/fonts/mandalore.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -55,7 +55,7 @@
 
 @font-face {
   font-family: 'StarjediFont';
-  src: url('/fonts/Starjedi.ttf') format('truetype');
+  src: url('https://horaciocaniz.github.io/javiylulu/fonts/Starjedi.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
