@@ -24,6 +24,21 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+    #toggle-music {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 999;
+    }
+  </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
@@ -95,6 +110,16 @@
         </div>
     </div>
     <!-- Carousel End -->
+
+    <!-- Audio oculto -->
+  <audio id="background-music" autoplay loop>
+    <source src="audio/Cantina Band.mp3" type="audio/mp3">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <!-- Botón para pausar/reproducir -->
+  <button id="toggle-music">🔊 Música</button>
+
 
     <!-- Fecha Start -->
 
@@ -372,6 +397,25 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <!-- Musica Javascript -->
+    <script>
+    const audio = document.getElementById('background-music');
+    const button = document.getElementById('toggle-music');
+
+    let isPlaying = true;
+
+    button.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        button.textContent = '🔇 Silenciado';
+      } else {
+        audio.play();
+        button.textContent = '🔊 Música';
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
 </body>
 
 </html>
