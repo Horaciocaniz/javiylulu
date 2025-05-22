@@ -26,45 +26,44 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
-    /* Overlay al entrar */
-    #music-overlay {
+    /* Banner sutil */
+    #music-banner {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.85);
-      color: white;
+      bottom: 0;
+      width: 100%;
+      background: #111;
+      color: #fff;
+      padding: 15px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
       z-index: 9999;
-      flex-direction: column;
       font-family: sans-serif;
+      font-size: 0.95rem;
     }
 
-    #music-overlay button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
+    #music-banner button {
+      margin-left: 10px;
+      padding: 8px 15px;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: pointer;
-      background-color: #f39c1f;
+      font-size: 0.9rem;
+    }
+
+    #aceptar-musica {
+      background-color: lightgreen;
       color: #000;
     }
 
-     #close-overlay {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: white;
-      cursor: pointer;
+    #cerrar-banner {
+      background-color: #fff;
+      color: #000;
     }
 
     #toggle-music {
       position: fixed;
-      bottom: 20px;
+      bottom: 80px;
       left: 20px;
       background: #000;
       color: #fff;
@@ -72,18 +71,21 @@
       padding: 10px 15px;
       border-radius: 50px;
       cursor: pointer;
-      z-index: 1000;
+      z-index: 999;
+      display: none;
     }
   </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
     
-    <!-- Overlay al iniciar -->
-  <div id="music-overlay">
-    <button id="close-overlay">❌</button>
-    <div>🎵 ¿Querés escuchar música durante tu experiencia?</div>
-    <button id="activar-musica">Activar Música</button>
+    <!-- Banner inferior -->
+  <div id="music-banner">
+    🎵 ¿Querés escuchar música durante tu visita?
+    <div>
+      <button id="aceptar-musica">Activar Música</button>
+      <button id="cerrar-banner">Cerrar</button>
+    </div>
   </div>
 
   <!-- Audio -->
@@ -92,8 +94,8 @@
     Tu navegador no soporta audio HTML5.
   </audio>
 
-  <!-- Botón para silenciar -->
-  <button id="toggle-music" style="display: none;">🔊 Música</button>
+  <!-- Botón flotante -->
+  <button id="toggle-music">🔇 Silenciado</button>
 
 
 
@@ -449,28 +451,27 @@
     <script>
     const audio = document.getElementById('background-music');
     const toggleBtn = document.getElementById('toggle-music');
-    const activarBtn = document.getElementById('activar-musica');
-    const closeBtn = document.getElementById('close-overlay');
-    const overlay = document.getElementById('music-overlay');
+    const aceptarBtn = document.getElementById('aceptar-musica');
+    const cerrarBtn = document.getElementById('cerrar-banner');
+    const banner = document.getElementById('music-banner');
 
     let isPlaying = false;
 
-    activarBtn.addEventListener('click', () => {
+    aceptarBtn.addEventListener('click', () => {
       audio.play().then(() => {
         isPlaying = true;
         toggleBtn.textContent = '🔊 Música';
-        overlay.style.display = 'none';
         toggleBtn.style.display = 'block';
+        banner.style.display = 'none';
       }).catch(err => {
         console.log("Error al iniciar música:", err);
       });
     });
 
-    closeBtn.addEventListener('click', () => {
-      // Cierra el overlay pero NO inicia música
-      overlay.style.display = 'none';
+    cerrarBtn.addEventListener('click', () => {
+      banner.style.display = 'none';
+      toggleBtn.style.display = 'block';
       toggleBtn.textContent = '🔇 Silenciado';
-      toggleBtn.style.display = 'block'; // Mostrar igual el botón
     });
 
     toggleBtn.addEventListener('click', () => {
