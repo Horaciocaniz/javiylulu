@@ -28,18 +28,25 @@
     <style>
     /* Banner sutil */
     #music-banner {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #111;
-      color: #fff;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 9999;
-      font-family: sans-serif;
-      font-size: 0.95rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #111;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* permite ajuste si es necesario */
+    z-index: 9999;
+    font-family: sans-serif;
+    font-size: 0.95rem;
+    }
+
+    #music-banner div {
+    display: flex;
+    gap: 10px; /* espacio entre botones */
+    margin-top: 10px;
     }
 
     #music-banner button {
@@ -81,7 +88,7 @@
     
     <!-- Banner inferior -->
   <div id="music-banner">
-    🎵 ¿Querés escuchar música durante tu visita?
+    <p>🎵 ¿Querés escuchar música durante tu visita?</p>
     <div>
       <button id="aceptar-musica">Activar Música</button>
       <button id="cerrar-banner">Cerrar</button>
