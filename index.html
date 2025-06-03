@@ -29,7 +29,7 @@
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Precargar Imagen 1 carrusel -->
-    <link rel="preload" as="image" href="img/fotos Javi Y Lulu/Carrusel-Mobile/1.webp">
+    <link rel="preload" as="image" href="img/fotos Javi Y Lulu/Carrusel-Mobile/2.webp">
 
     <style>
     /* Banner sutil */
@@ -141,107 +141,32 @@
 
 
     <!-- Carousel Start -->
-<div class="container-fluid p-0 mb-5 pb-5" id="home">
-    <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-            <!-- Slide 1 -->
-            <div class="carousel-item position-relative active" style="height: 100vh; min-height: 400px;">
-                <img class="d-none d-md-block position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Desktop/1.png" style="object-fit: cover;">
-                <img class="d-block d-md-none position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Mobile/1.webp" style="object-fit: cover;">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
-                        <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Javi & Lulú</h1>
-                        <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                            <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">¡Nos vamos a casar!</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Hero Start -->
+        <div class="hero position-relative" style="height: 100vh; min-height: 400px; overflow: hidden;">
+            <picture>
+                <!-- Desktop -->
+                <source media="(min-width: 768px)" srcset="img/fotos Javi Y Lulu/Carrusel-Desktop/2.png" type="image/png">
+                <!-- Mobile -->
+                <source media="(max-width: 767px)" srcset="img/fotos Javi Y Lulu/Carrusel-Mobile/3.webp" type="image/webp">
+                <!-- Fallback (por compatibilidad extra) -->
+                <img src="img/fotos Javi Y Lulu/Carrusel-Desktop/2.png"
+                    class="position-absolute w-100 h-100"
+                    style="object-fit: cover; background-color: #000; transition: opacity 0.5s ease;"
+                    alt="Javi y Lulú Hero">
+            </picture>
 
-            <!-- Slide 2 -->
-            <div class="carousel-item position-relative" style="height: 100vh; min-height: 400px;">
-                <img class="d-none d-md-block position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Desktop/2.png" style="object-fit: cover;">
-                <img class="d-block d-md-none position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Mobile/2.webp" style="object-fit: cover;">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
-                        <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Javi & Lulú</h1>
-                        <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                            <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">¡Nos vamos a casar!</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-item position-relative" style="height: 100vh; min-height: 400px;">
-                <img class="d-none d-md-block position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Desktop/3.png" style="object-fit: cover;">
-                <img class="d-block d-md-none position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Mobile/3.webp" style="object-fit: cover;">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
-                        <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Javi & Lulú</h1>
-                        <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                            <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">¡Nos vamos a casar!</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4 -->
-            <div class="carousel-item position-relative" style="height: 100vh; min-height: 400px;">
-                <img class="d-none d-md-block position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Desktop/4.png" style="object-fit: cover;">
-                <img class="d-block d-md-none position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Mobile/4.webp" style="object-fit: cover;">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
-                        <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Javi & Lulú</h1>
-                        <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                            <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">¡Nos vamos a casar!</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 5 -->
-            <div class="carousel-item position-relative" style="height: 100vh; min-height: 400px;">
-                <img class="d-none d-md-block position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Desktop/5.png" style="object-fit: cover;">
-                <img class="d-block d-md-none position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Mobile/5.webp" style="object-fit: cover;">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
-                        <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Javi & Lulú</h1>
-                        <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                            <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">¡Nos vamos a casar!</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 6 -->
-            <div class="carousel-item position-relative" style="height: 100vh; min-height: 400px;">
-                <img class="d-none d-md-block position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Desktop/6.png" style="object-fit: cover;">
-                <img class="d-block d-md-none position-absolute w-100 h-100" src="img/fotos Javi Y Lulu/Carrusel-Mobile/6.webp" style="object-fit: cover;">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
-                        <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Javi & Lulú</h1>
-                        <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                            <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">¡Nos vamos a casar!</h3>
-                        </div>
+            <!-- Texto centrado -->
+            <div class="hero-caption d-flex flex-column align-items-center justify-content-center position-absolute w-100 h-100">
+                <div class="p-3" style="max-width: 900px;">
+                    <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Javi & Lulú</h1>
+                    <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
+                        <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">¡Nos vamos a casar!</h3>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Hero End -->
 
-        <!-- Controles -->
-        <a class="carousel-control-prev justify-content-start" href="#header-carousel" data-slide="prev">
-            <div class="btn btn-primary px-0" style="width: 68px; height: 68px;">
-                <span class="carousel-control-prev-icon mt-3"></span>
-            </div>
-        </a>
-        <a class="carousel-control-next justify-content-end" href="#header-carousel" data-slide="next">
-            <div class="btn btn-primary px-0" style="width: 68px; height: 68px;">
-                <span class="carousel-control-next-icon mt-3"></span>
-            </div>
-        </a>
-    </div>
-</div>
 <!-- Carousel End -->
 
 
